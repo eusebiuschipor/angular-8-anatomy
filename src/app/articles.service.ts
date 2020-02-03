@@ -5,16 +5,24 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ArticlesService {
-  uri = 'http://localhost:4000/products';
+  uriLocal = 'http://localhost/api-loopevo-cms/post/create.php';
+  uriLive = 'http://cms.loopevo.com/api/post/create.php';
+
   constructor(private http: HttpClient) { }
-  addArticle(Name, Text, Author) {
+
+  addArticle(Title, Url, Content, First_paragraph, Category, Image, Author, Popular) {
     const obj = {
-      Name: Name,
-      Text: Text,
-      Author: Author
+      title: Title,
+      url: Url,
+      content: Content,
+      first_paragraph: First_paragraph,
+      category: Category,
+      image: Image,
+      author: Author,
+      popular: Popular
     };
-    console.log('Send to server (add article): ', obj);
-    this.http.post(`${this.uri}/add`, obj)
+
+    this.http.post(`${this.uriLive}`, obj)
         .subscribe(res => console.log('Done'));
   }
 }

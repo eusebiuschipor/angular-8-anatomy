@@ -1,0 +1,2 @@
+Run project: ng serve -o  
+Build project: ng build --watch

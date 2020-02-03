@@ -14,13 +14,18 @@ export class AddArticleComponent implements OnInit {
   }
   createForm() {
     this.angForm = this.fb.group({
-      Name: ['', Validators.required ],
-      Text: ['', Validators.required ],
-      Author: ['', Validators.required ]
+      Title: ['', Validators.required ],
+      Url: ['', Validators.required ],
+      Content: ['', Validators.required ],
+      First_paragraph: ['', Validators.required ],
+      Category: ['', Validators.required ],
+      Image: ['', Validators.required ],
+      Author: ['', Validators.required ],
+      Popular: ['', Validators.required ]
     });
   }
-  addArticle(Name, Text, Author) {
-    this.ps.addArticle(Name, Text, Author);
+  addArticle(Title, Url, Content, First_paragraph, Category, Image, Author, Popular) {
+    this.ps.addArticle(Title, Url, Content, First_paragraph, Category, Image, Author, Popular);
   }
   ngOnInit() {
   }
